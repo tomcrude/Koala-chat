@@ -1,0 +1,63 @@
+body{
+    overflow-x: hidden;
+}
+
+.papo{
+    scrollbar-color: rgb(87, 177, 255) !important;
+
+}
+
+.disabled{
+    display: none !important;
+}
+.img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.inp{
+    opacity: 0;
+    width: -500px;
+    transform: translateY(-80px);
+    font-size: 50px;
+    background: rgba(255, 0, 0, 0);
+    color: rgba(255, 0, 0, 0);
+}
+
+.dark {
+    background: rgb(5, 9, 12);
+    border-color: rgb(255, 255, 255);
+}
+
+.dark p, .dark h1,.dark h6,.dark h2,.dark h4,.dark a,.dark button,.dark svg,.dark input::placeholder, .dark label, .dark input,.dark textarea{
+    color: rgb(221, 221, 221);
+}
+.dark-button:hover{
+    background-color: rgb(15, 21, 28) !important;
+}
+.dark input, .dark textarea{
+    background-color: rgb(15, 21, 28) !important;
+    
+}
+.dark-div{
+    background: rgb(15, 21, 28) !important
+}
+.dark-img{
+    background-image: url(../public/logo-3.png) !important;
+}
+.inp2 input{
+    height: 20%;
+}
+.dark-follow:hover{
+    background: rgb(15, 21, 28) !important;
+    border-bottom: rgb(214, 214, 214) 2px solid !important;
+}
+
+
+@media screen and (min-width: 768px) {
+    .user{
+        display: none;
+    }   
+}
