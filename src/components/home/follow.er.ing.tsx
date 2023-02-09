@@ -21,7 +21,7 @@ export default function Foll() {
 
 
   useEffect(() => {
-    fetch(`https://project-0-1.herokuapp.com/users/followers/ing/${id}`)
+    fetch(`https://project-0-1-1.herokuapp.com/users/followers/ing/${id}`)
     .then((res) => res.json())
     .then((res) => {
       if (res[0].state === "error"){navegate(`/.user/${localStorage.getItem("token")}`)}
@@ -142,7 +142,7 @@ export default function Foll() {
                     src={
                       stat.imgData === null
                         ? photo
-                        : `https://project-0-1.herokuapp.com/${stat.id}-img.png`
+                        : `https://project-0-1-1.herokuapp.com/${stat.id}-img.png`
                     }
                   />
                 </Box>

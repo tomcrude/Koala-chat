@@ -36,7 +36,7 @@ export default function GlobalChat() {
 
   function searchRoomss(e:any){
     e.preventDefault()
-    fetch(`https://project-0-1.herokuapp.com/chat/room/search/${[searchRooms,localStorage.getItem("token")]}`)
+    fetch(`https://project-0-1-1.herokuapp.com/chat/room/search/${[searchRooms,localStorage.getItem("token")]}`)
     .then(res => res.json())
     .then(res => {console.log(res); if (res[0] === undefined || res[1] === undefined){setchats(["1"]); setlist(["1"])}else{setlist(res[0]); setchats(res[1]) }})
 
@@ -46,14 +46,14 @@ export default function GlobalChat() {
  
 
     function search(){
-        fetch(`https://project-0-1.herokuapp.com/chat/room/${[id,localStorage.getItem("token")]}`)
+        fetch(`https://project-0-1-1.herokuapp.com/chat/room/${[id,localStorage.getItem("token")]}`)
       .then(res => res.json())
       .then(res => {if (res[1] === undefined || res[2] === undefined){setchats(["1"]); setlist(["1"])}else{if (localStorage.getItem("search") !== "true"){setlist(res[1])};setchats(res[2])} ;if (res[0].state !== "error"){let array= res[0].messages.split("%%%%"); setinfo(array);} else {setstate(res[0].state)}})
     }
 
     function privateRoom(user:any){
 
-      fetch(`https://project-0-1.herokuapp.com/chat/room/private/${localStorage.getItem("token")}`,{
+      fetch(`https://project-0-1-1.herokuapp.com/chat/room/private/${localStorage.getItem("token")}`,{
         method: "POST",
         headers:{
           "Accept": "application/json",
@@ -104,7 +104,7 @@ export default function GlobalChat() {
         let mess:any = document.getElementById("message")
         mess.value = ""
 
-        fetch(`https://project-0-1.herokuapp.com/chat/room/${id}`,{
+        fetch(`https://project-0-1-1.herokuapp.com/chat/room/${id}`,{
         method: "POST",
         headers:{
           "Accept": "application/json",
@@ -154,7 +154,7 @@ export default function GlobalChat() {
               <Box onClick={()=>{ navegate(`../.user/${info.idPicture}`);}} sx={{"&:hover": {cursor: "pointer"}}} bgcolor={"rgba(0,0,0,0) !important"} position="absolute" height={60} width={60} mt={1} ml={1.5} zIndex={5}></Box>
               <Grid onClick={()=>{localStorage.setItem("movil", "1"); navegate(`../chat/${stat.id}`); localStorage.setItem("titleUser", info.name); window.location.reload(); localStorage.setItem("color", id)}} bgcolor={localStorage.getItem("color") === stat.id.toString() && localStorage.getItem("dark") === null ? "rgb(240,240,240)" : "" } className={localStorage.getItem("dark") === null ? "" : "dark-button"} sx={{"&:hover": {bgcolor: "rgb(245,245,245)", cursor: "pointer"}}} position="relative" item xs={12} md={12} height={80} borderBottom="1px rgb(155,155,155) solid"> 
                     <Box position="absolute" borderRadius="50%" padding="2px" bgcolor="rgb(0,245,0) !important" height="20px" width="20px" m={0.7} zIndex={10} border="1px solid rgb(0,100,0) !important" className={stat.updatee === "none" || stat.updatee === noUser ? "disabled" : ""}><NotificationsActiveIcon sx={{fontSize: "19.5px"}}/></Box>
-                    <Box zIndex={1}  mt={0.5} ml={1} position="absolute" height="64px" width="65px" borderRadius="50%" border="2px solid rgb(150,150,150)"><img className='img' src={info.name === undefined || info.imgType === undefined || info.imgType === null ? photo : `https://project-0-1.herokuapp.com/${info.idPicture}-img.png`} alt="public room " /></Box>
+                    <Box zIndex={1}  mt={0.5} ml={1} position="absolute" height="64px" width="65px" borderRadius="50%" border="2px solid rgb(150,150,150)"><img className='img' src={info.name === undefined || info.imgType === undefined || info.imgType === null ? photo : `https://project-0-1-1.herokuapp.com/${info.idPicture}-img.png`} alt="public room " /></Box>
                     <Box left="50%" top="26%" sx={{transform: "translate(-50%)"}} position="absolute"><Typography variant="h6" fontWeight={600} color="initial">{info.name === undefined ? "Public Room" : info.name}</Typography></Box>             
             </Grid>
             </Box>

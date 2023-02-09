@@ -25,7 +25,7 @@ export default function EditUser() {
     const token = localStorage.getItem("token")
 
     async function conection (){
-      const fet1 = await fetch(`https://project-0-1.herokuapp.com/user/${id}`)
+      const fet1 = await fetch(`https://project-0-1-1.herokuapp.com/user/${id}`)
       .then(res => res.json())
       .then(res => {setcolor(res[0].bgcolor);setname(res[0].name);setdes(res[0].des);setinfo(res[0]);setfile(res[3])})
     }
@@ -54,7 +54,7 @@ export default function EditUser() {
       console.log(formdata)
       console.log(file)
       
-      fetch(`https://project-0-1.herokuapp.com/user/update/${token}/${name}/${des}/${color}/${user}`,{
+      fetch(`https://project-0-1-1.herokuapp.com/user/update/${token}/${name}/${des}/${color}/${user}`,{
         method: "PUT",
         body: formdata
       }).then((res)=>{return res.json()})
@@ -89,7 +89,7 @@ export default function EditUser() {
     <Grid container height="100vh" className={localStorage.getItem("dark") === null ? "" : "dark"}>
         <UserInterfaceHeader/>
         <Grid border={window.innerWidth < 900 ? "0.5px rgb(150,150,150) solid !important" : ""} item xs={11} md={6} sx={{borderLeft: "1px rgb(150,150,150) solid", borderBottom: {md:"1px rgb(150,150,150) solid"}}}>
-            <Grid item xs={12}><Box title={localStorage.getItem("idiom") === null ? 'Change background color' : "Cambiar el color de fondo"} position="absolute" m={3} zIndex={10}><Box onClick={()=>{change()}} width={40} height={40} sx={{"&:hover":{cursor: "pointer"}}}><AutoFixNormalIcon/></Box></Box><Box position="relative" bgcolor={color} height={155} ></Box><Box position="absolute" bgcolor="rgb(220,220,220)" width={100} height={100} sx={{"&:hover":{ filter: "brightness(0.95)"},borderRadius: "50%", outline: "6px rgb(255,255,255) solid",right: {md:"0"},left: "0", margin: "auto", transform: {md:"translateY(-90px)", xs:"translateY(-90px) translateX(90px)"}}} title={localStorage.getItem("idiom") === null ? 'Change image' : "Cambiar imagen"}><img className='img' src={info.imgData === null ? photo : `https://project-0-1.herokuapp.com/${id}-img.png`} alt="user-image"/><input type="file" className='inp' onChange={(e)=>{setfile(e.target.files) }}/></Box></Grid>
+            <Grid item xs={12}><Box title={localStorage.getItem("idiom") === null ? 'Change background color' : "Cambiar el color de fondo"} position="absolute" m={3} zIndex={10}><Box onClick={()=>{change()}} width={40} height={40} sx={{"&:hover":{cursor: "pointer"}}}><AutoFixNormalIcon/></Box></Box><Box position="relative" bgcolor={color} height={155} ></Box><Box position="absolute" bgcolor="rgb(220,220,220)" width={100} height={100} sx={{"&:hover":{ filter: "brightness(0.95)"},borderRadius: "50%", outline: "6px rgb(255,255,255) solid",right: {md:"0"},left: "0", margin: "auto", transform: {md:"translateY(-90px)", xs:"translateY(-90px) translateX(90px)"}}} title={localStorage.getItem("idiom") === null ? 'Change image' : "Cambiar imagen"}><img className='img' src={info.imgData === null ? photo : `https://project-0-1-1.herokuapp.com/${id}-img.png`} alt="user-image"/><input type="file" className='inp' onChange={(e)=>{setfile(e.target.files) }}/></Box></Grid>
             <Grid item mt={4} xs={12} position="relative"><Box textAlign="center" border={"rgb(220,220,220) solid 1.5px"} borderRadius="2%" width="85%" sx={{right: "0",left: "0", margin: "auto" }}>
                 <Typography my={2} variant="h2" fontSize={22} color="initial">{localStorage.getItem("idiom") === null ? "Username" : "Nombre de usuario"}</Typography>
                 <input onChange={(e)=>{setname(e.target.value)}} style={{height: 20, fontSize: 15, fontWeight: 500}} type="text" placeholder={name}/>

@@ -29,7 +29,7 @@ export default function SignUp() {
     else if (localStorage.getItem("denegate") === "true"){window.alert("You are making many requests.");setmax(max + 4)}
     else {
       setmax(max + 1)
-     await fetch("https://project-0-1.herokuapp.com/c-a",{
+     await fetch("https://project-0-1-1.herokuapp.com/c-a",{
         method: "POST",
         headers:{
           "Accept": "application/json",
