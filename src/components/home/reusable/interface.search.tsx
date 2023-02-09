@@ -12,7 +12,7 @@ export default function UserInterfaceSearch(props:any) {
 
   function enter(){
     if (search.length > 12){window.alert("The maximum of characters is 12")}
-    fetch(`https://project-0-1-1.herokuapp.com/users/search`,{
+    fetch(`https://koala-server.onrender.com/users/search`,{
       method: "POST",
       headers:{
         "Accept": "application/json",
@@ -28,7 +28,7 @@ export default function UserInterfaceSearch(props:any) {
   }
 
     useEffect(()=>{
-      fetch(`https://project-0-1-1.herokuapp.com/users/random/${id}`)
+      fetch(`https://koala-server.onrender.com/users/random/${id}`)
       .then(res => res.json())
       .then(res => setpeople(res))
 
@@ -63,7 +63,7 @@ export default function UserInterfaceSearch(props:any) {
                   {
                     return (
                     <Box ml={1} mt={1} key={id_} >
-                    <Grid item><Box sx={{marginLeft: {xs:"5px", md: "0px"}}} width={50} height={50}><img className='img' src={stat.imgData === null || stat.imgData === undefined ? photo : `https://project-0-1-1.herokuapp.com/${stat.id}-img.png`} alt="user-image"/></Box></Grid>
+                    <Grid item><Box sx={{marginLeft: {xs:"5px", md: "0px"}}} width={50} height={50}><img className='img' src={stat.imgData === null || stat.imgData === undefined ? photo : `https://koala-server.onrender.com/${stat.id}-img.png`} alt="user-image"/></Box></Grid>
                     <Grid item position="absolute"  ml="24%" sx={{transform: {md: "translateY(-155%)", xs: "translateY(-160%)"}}} xs={12}><Link href={stat.state == "none" ? "" : `/.user/${stat.id}`} sx={{textDecoration:"none"}}><Typography sx={{fontSize:{xs:"18px"}}} component="p" color="initial">{stat.name}{stat.state}{stat.id}</Typography></Link></Grid>
                     </Box>
                   )}
@@ -79,7 +79,7 @@ export default function UserInterfaceSearch(props:any) {
                   {
                     return (
                     <Box ml={1} mt={1} key={id_}>
-                    <Grid item><Box sx={{marginLeft: {xs:"5px", md: "0px"}}} width={50} height={50}><img className='img' src={stat.imgData === null || stat.imgData === undefined ? photo : `https://project-0-1-1.herokuapp.com/${stat.id}-img.png`} alt="user-image"/></Box></Grid>
+                    <Grid item><Box sx={{marginLeft: {xs:"5px", md: "0px"}}} width={50} height={50}><img className='img' src={stat.imgData === null || stat.imgData === undefined ? photo : `https://koala-server.onrender.com/${stat.id}-img.png`} alt="user-image"/></Box></Grid>
                     <Grid item position="absolute"  ml="24%" sx={{transform: {md: "translateY(-155%)", xs: "translateY(-160%)"}}} xs={12}><Link href={`/.user/${stat.id}`} sx={{textDecoration:"none"}}><Typography sx={{fontSize:{xs:"18px"}}} component="p" color="initial">{stat.name}</Typography></Link></Grid>
                     </Box>
                   )}

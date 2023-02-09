@@ -13,7 +13,7 @@ export default function Forgot() {
         const emailVeri = await expReg.test(email)
         if (emailVeri === false){return window.alert("You have to introduce a correct email.")}
         else {
-            const send = await fetch("https://project-0-1-1.herokuapp.com/c-c",{ 
+            const send = await fetch("https://koala-server.onrender.com/c-c",{ 
         method: "POST",
         headers:{
           "Accept": "application/json",

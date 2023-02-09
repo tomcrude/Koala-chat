@@ -23,7 +23,7 @@ export default function User() {
     const [followings, setfollowings] = useState<any>([])
 
     function rooms (){
-      fetch(`https://project-0-1-1.herokuapp.com/chat/room/private/${localStorage.getItem("token")}`,{
+      fetch(`https://koala-server.onrender.com/chat/room/private/${localStorage.getItem("token")}`,{
         method: "POST",
         headers:{
           "Accept": "application/json",
@@ -37,13 +37,13 @@ export default function User() {
     }
 
     async function conection (){
-      const fet1 = await fetch(`https://project-0-1-1.herokuapp.com/user/${id + "," + localStorage.getItem("token")}`)
+      const fet1 = await fetch(`https://koala-server.onrender.com/user/${id + "," + localStorage.getItem("token")}`)
       .then(res => res.json())
       .then(res => {if(res[0] !== undefined || res[1] !== undefined ){setinfo(res[0]);setstate(res[2]);setcolor(res[1]); } if(res[0].following !== null || res[0].following !== undefined){let array = res[0].following.split(",").filter((item:any) => item !== ""); setfollowings(array)};if(res[0].followers !== null || res[0].followers !== undefined){let array2 = res[0].followers.split(",").filter((item:any) => item !== ""); setfollowers(array2)} })
     }
 
     useEffect(()=>{
-      fetch("https://project-0-1-1.herokuapp.com/images/get")
+      fetch("https://koala-server.onrender.com/images/get")
       let token = localStorage.getItem("token")
       if (token === "" || token === undefined || token === null){navegate("/")}
       else {
@@ -65,7 +65,7 @@ export default function User() {
     },[info])
 
    async function send(){
-      await fetch(`https://project-0-1-1.herokuapp.com/users/follower`,{
+      await fetch(`https://koala-server.onrender.com/users/follower`,{
         method: "POST",
         headers:{
           "Accept": "application/json",
@@ -84,7 +84,7 @@ export default function User() {
     <Grid container height="100vh" className={localStorage.getItem("dark") === null ? "" : "dark"}>
         <UserInterfaceHeader/>
         <Grid item xs={11} md={6} sx={{borderLeft: "1px rgb(150,150,150) solid", borderBottom: {md:"1px rgb(150,150,150) solid"}}}>
-            <Grid item xs={12}><Box position="relative" bgcolor={info.bgcolor} height={244}></Box><Box m={5} mt={-12} position="absolute" bgcolor="rgb(220,220,220)" width={150} height={150} sx={{borderRadius: "50%", outline: "6px rgb(255,255,255) solid"}}><img className='img' src={info.imgData === null ? photo : `https://project-0-1-1.herokuapp.com/${id}-img.png`} alt="user-image"/></Box></Grid>
+            <Grid item xs={12}><Box position="relative" bgcolor={info.bgcolor} height={244}></Box><Box m={5} mt={-12} position="absolute" bgcolor="rgb(220,220,220)" width={150} height={150} sx={{borderRadius: "50%", outline: "6px rgb(255,255,255) solid"}}><img className='img' src={info.imgData === null ? photo : `https://koala-server.onrender.com/${id}-img.png`} alt="user-image"/></Box></Grid>
             {permission}
             {follow}
             <Grid item><Typography component="h1" color="initial" mt={3.5} fontSize={23} ml={4} fontWeight="600">{info.name}</Typography></Grid>

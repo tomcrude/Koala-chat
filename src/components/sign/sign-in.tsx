@@ -26,7 +26,7 @@ export default function SignIn() {
     else if (max > 2){window.alert("You are making many requests.")}
     else{
       setmax(max + 1)
-      fetch("https://project-0-1-1.herokuapp.com/c-b",{
+      fetch("https://koala-server.onrender.com/c-b",{
         method: "POST",
         headers:{
           "Accept": "application/json",
