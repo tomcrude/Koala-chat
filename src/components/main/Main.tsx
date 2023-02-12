@@ -10,6 +10,9 @@ export default function Main() {
       let token = localStorage.getItem("token")
       if (!token === undefined || !token === null || token){navegate(`/.user/${token}`); localStorage.setItem("d", "0")}
     })
+
+    fetch("https://koala-server.onrender.com/start")
+
   return (
     <>
     <Box position="fixed" zIndex={-1} bgcolor="rgb(80, 151, 231)" sx={{right: "0", bottom: "0", minWidth: "100%", minHeight: "100%"}}>
