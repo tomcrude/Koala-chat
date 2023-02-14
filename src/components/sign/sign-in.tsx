@@ -18,6 +18,7 @@ export default function SignIn() {
   localStorage.setItem("d", "1")
 
   async function send (e:any){
+    window.alert("This page is made with free resources, so when using it at the beginning, the server can take up to 30 seconds to function correctly, if nothing happens, reload the page. Thanks!")
     e.preventDefault()
     var expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
     const emailVeri = await expReg.test(email)
