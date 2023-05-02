@@ -14,7 +14,7 @@ root.render(
     <App />
     
 
-    <Typography  component="footer" display={localStorage.getItem("d") === "0" ? "none" : ""} variant="body2" color="text.secondary" align="center" mt={5}>
+    <Typography  component="footer" display={localStorage.getItem("d") === "0" ? "none" : ""} variant="body2" color="text.secondary" align="center" mt={5.1}>
       {'Copyright © '}
       <Link color="inherit" href="/">
         Koala
