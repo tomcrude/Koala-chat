@@ -48,7 +48,7 @@ export default function GlobalChat() {
     function search(){
         fetch(`https://koala-server.onrender.com/chat/room/${[id,localStorage.getItem("token")]}`)
       .then(res => res.json())
-      .then(res => {if (res[1] === undefined || res[2] === undefined){setchats(["1"]); setlist(["1"])}else{if (localStorage.getItem("search") !== "true"){setlist(res[1])};setchats(res[2])} ;if (res[0].state !== "error"){let array= res[0].messages.split("%%%%"); setinfo(array);} else {setstate(res[0].state)}})
+      .then(res => {if (res[1] === undefined || res[2] === undefined){setchats(["1"]); setlist(["1"])}else{if (localStorage.getItem("search") !== "true"){setlist(res[1])};setchats(res[2])} ;if (res[0].state !== "error"){if(res[0].messages != null){;let array= res[0].messages.split("%%%%"); setinfo(array)}} else {setstate(res[0].state)}})
     }
 
     function privateRoom(user:any){
